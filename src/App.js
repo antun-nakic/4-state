@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Clock from "./components/Clock";
+import Brojac from "./components/Brojac";
+import TodoApp from "./containers/TodoApp";
+
+function ClockFunkcionalna(props) {
+  return (
+    <div>
+      <h1>Funkcionalna</h1>
+      <h2>It is {props.time}.</h2>
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TodoApp />
+      <ClockFunkcionalna time={new Date().toLocaleTimeString()} />
+      <Clock />
+      <Brojac />
+    </>
   );
 }
 
