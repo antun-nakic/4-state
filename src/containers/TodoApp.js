@@ -7,16 +7,36 @@ export default class TodoApp extends Component {
     super(props);
 
     this.state = {
-      unos: "",
-      lista: [],
+      unos: "", //hdfkjdhjhf
+      lista: ["cvgsfdvbkjs", "dkgbfd", "dsjhgjkdsgbjk"],
     };
   }
+
+  componentDidUpdate() {
+    console.log("updeateala sam se");
+  }
+
+  handleInputChange = (e) => {
+    this.setState((state, props) => {
+      return { unos: e.target.value };
+    });
+  };
+
+  handleAddTask = (e) => {
+    this.setState((state, props) => {
+      return { lista: [...state.lista, state.unos], unos: "" };
+    });
+  };
 
   render() {
     return (
       <div>
-        <UnosTaska />
-        <ListaTodoova />
+        <UnosTaska
+          input={this.state.unos}
+          handleInputChange={this.handleInputChange}
+          handleAddTask={this.handleAddTask}
+        />
+        <ListaTodoova tasks={this.state.lista} />
       </div>
     );
   }

@@ -1,10 +1,10 @@
 import React from "react";
 
-const UnosTaska = () => {
+const UnosTaska = ({ handleInputChange, handleAddTask, input }) => {
   return (
     <div>
-      <input type='text' />
-      <button>Dodaj task</button>
+      <input type='text' value={input} onChange={handleInputChange} />
+      <button onClick={handleAddTask}>Dodaj task</button>
     </div>
   );
 };
